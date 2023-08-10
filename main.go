@@ -16,9 +16,9 @@ import (
 //	@license.name	Apache 2.0
 //	@license.url	http://www.apache.org/licenses/LICENSE-2.0.html
 
-// @host						localhost:8080
-// @BasePath					/
-// @query.collection.format	multi
+//	@host						localhost:8080
+//	@BasePath					/
+//	@query.collection.format	multi
 
 func main() {
 	server.StartServer()

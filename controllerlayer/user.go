@@ -7,7 +7,7 @@ import (
 	"encoding/json"
 	"net/http"
 
-	"github.com/labstack/echo"
+	"github.com/labstack/echo/v4"
 )
 
 type UserControllerImpl struct {
@@ -20,7 +20,18 @@ func NewUserController(userServiceObject interfaces.UserServicelayer) *UserContr
 	}
 }
 
-func (uc UserControllerImpl) RegisterHandler(c echo.Context) error {
+//	@Summary		Register a new user
+//	@Description	Register a new user with the provided information
+//	@Tags			users
+//	@Accept			json
+//	@Produce		json
+//	@Param			body	body		models.UserCreateRequest	true	"User registration details"
+//	@Success		201		{object}	models.UserResponse
+//	@Failure		400		{object}	models.ErrorResponseRegisterLogin
+//	@Failure		422		{object}	models.ErrorResponseRegisterLogin
+//	@Failure		500		{object}	models.ErrorResponseRegisterLogin
+//	@Router			/users/register [post]
+func (uc *UserControllerImpl) RegisterHandler(c echo.Context) error {
 	// Read Request Body
 	jsonBody := make(map[string]interface{})
 	err := json.NewDecoder(c.Request().Body).Decode(&jsonBody)
@@ -44,6 +55,6 @@ func (uc UserControllerImpl) RegisterHandler(c echo.Context) error {
 	return c.JSON(http.StatusOK, user)
 }
 
-func (uc UserControllerImpl) LoginHandler(c echo.Context) error {
+func (uc *UserControllerImpl) LoginHandler(c echo.Context) error {
 	return nil
 }
