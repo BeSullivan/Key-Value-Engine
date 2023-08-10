@@ -1,4 +1,4 @@
-package controller
+package controllerlayer
 
 import (
 	"Kiwi/interfaces"
@@ -10,28 +10,17 @@ import (
 	"github.com/labstack/echo"
 )
 
-type UserController struct {
+type UserControllerImpl struct {
 	userService interfaces.UserServicelayer
 }
 
-func NewUserController(userServiceObject interfaces.UserServicelayer) *UserController {
-	return &UserController{
+func NewUserController(userServiceObject interfaces.UserServicelayer) *UserControllerImpl {
+	return &UserControllerImpl{
 		userService: userServiceObject,
 	}
 }
 
-// @Summary Register a new user
-// @Description Register a new user with the provided information
-// @Tags users
-// @Accept json
-// @Produce json
-// @Param body body UserRegister true "User registration details"
-// @Success 201 {object} UserResponse
-// @Failure 400 {object} ErrorResponseRegisterLogin
-// @Failure 422 {object} ErrorResponseRegisterLogin
-// @Failure 500 {object} ErrorResponseRegisterLogin
-// @Router /users/register [post]
-func (uc UserController) RegisterHandler(c echo.Context) error {
+func (uc UserControllerImpl) RegisterHandler(c echo.Context) error {
 	// Read Request Body
 	jsonBody := make(map[string]interface{})
 	err := json.NewDecoder(c.Request().Body).Decode(&jsonBody)
@@ -55,6 +44,6 @@ func (uc UserController) RegisterHandler(c echo.Context) error {
 	return c.JSON(http.StatusOK, user)
 }
 
-func (uc UserController) LoginHandler(c echo.Context) error {
+func (uc UserControllerImpl) LoginHandler(c echo.Context) error {
 	return nil
 }

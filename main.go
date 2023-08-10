@@ -1,6 +1,9 @@
 package main
 
-import "Kiwi/server"
+import (
+	_ "Kiwi/docs"
+	"Kiwi/server"
+)
 
 //	@Title			Kiwi
 //	@version		1.0
