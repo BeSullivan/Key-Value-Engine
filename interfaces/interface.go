@@ -24,5 +24,6 @@ type (
 	}
 
 	UserServicelayer interface {
+		RegisterService(username string, password string) (models.User, error)
 	}
 )
