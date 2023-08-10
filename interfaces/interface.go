@@ -4,8 +4,25 @@ import "Kiwi/models"
 
 type (
 	KiwiDatalayer interface {
-		SetValueWithKey(key string, value string) (models.KeyValue, error)
-		GetValueByKey(key string) models.KeyValue
-		DeleteKey(key string) error
+		Set(key string, value string) (models.KeyValue, error)
+		Get(key string) models.KeyValue
+		GetAll() ([]models.KeyValue, error)
+		Delete(key string) error
+	}
+
+	KiwiServicelayer interface {
+		SetValueByKey(key string, values string) error
+		GetValueByKey(key string) (string, error)
+		GetAllKeyValues() ([]models.KeyValue, error)
+	}
+
+	UserDatalayer interface {
+		Get(id int) ([]models.User, error)
+		Create(username string, password string) (string, models.User, error)
+		Login(username, password string) (string, models.User, error)
+		CheckUnique(username string) (string, error)
+	}
+
+	UserServicelayer interface {
 	}
 )
