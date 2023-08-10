@@ -20,6 +20,17 @@ func NewUserController(userServiceObject interfaces.UserServicelayer) *UserContr
 	}
 }
 
+// @Summary Register a new user
+// @Description Register a new user with the provided information
+// @Tags users
+// @Accept json
+// @Produce json
+// @Param body body UserRegister true "User registration details"
+// @Success 201 {object} UserResponse
+// @Failure 400 {object} ErrorResponseRegisterLogin
+// @Failure 422 {object} ErrorResponseRegisterLogin
+// @Failure 500 {object} ErrorResponseRegisterLogin
+// @Router /users/register [post]
 func (uc UserController) RegisterHandler(c echo.Context) error {
 	// Read Request Body
 	jsonBody := make(map[string]interface{})
