@@ -1,6 +1,6 @@
 package main
 
-import "Key-Value-Engine/server"
+import "Kiwi/server"
 
 func main() {
 	server.StartServer()

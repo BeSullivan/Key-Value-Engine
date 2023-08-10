@@ -13,7 +13,6 @@ type (
 		App  `yaml:"app"`
 		HTTP `yaml:"http"`
 		PG
-		VCode `yaml:"vcode"`
 	}
 
 	App struct {
