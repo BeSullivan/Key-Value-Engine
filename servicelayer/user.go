@@ -19,3 +19,8 @@ func (userSL *UserServiceLayerImpl) RegisterService(username string, password st
 
 	return models.User{}, nil
 }
+
+func (userSL *UserServiceLayerImpl) LoginService(username string, password string) (models.User, error) {
+
+	return models.User{}, nil
+}
