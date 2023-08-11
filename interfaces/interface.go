@@ -17,13 +17,14 @@ type (
 	}
 
 	UserDatalayer interface {
-		Get(id int) ([]models.User, error)
-		Create(username string, password string) (string, models.User, error)
-		Login(username, password string) (string, models.User, error)
-		CheckUnique(username string) (string, error)
+		Get(id int) (models.User, error)
+		Create(username string, password string) (models.User, error)
+		Login(username string, password string) (models.User, error)
+		CheckUnique(username string) error
 	}
 
 	UserServicelayer interface {
 		RegisterService(username string, password string) (models.User, error)
+		LoginService(username string, password string) (models.User, error)
 	}
 )

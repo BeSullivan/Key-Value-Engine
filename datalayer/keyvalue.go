@@ -2,7 +2,6 @@ package datalayer
 
 import (
 	"Kiwi/interfaces"
-	_ "Kiwi/interfaces"
 	"Kiwi/models"
 
 	"gorm.io/gorm"

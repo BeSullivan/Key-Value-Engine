@@ -14,6 +14,13 @@ definitions:
       username:
         type: string
     type: object
+  models.UserLoginRequest:
+    properties:
+      password:
+        type: string
+      username:
+        type: string
+    type: object
   models.UserResponse:
     properties:
       ID:
@@ -38,6 +45,36 @@ info:
   title: Kiwi
   version: "1.0"
 paths:
+  /users/login:
+    post:
+      consumes:
+      - application/json
+      description: Login with username and password
+      parameters:
+      - description: Login request body
+        in: body
+        name: body
+        required: true
+        schema:
+          $ref: '#/definitions/models.UserLoginRequest'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/models.UserResponse'
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/models.ErrorResponseRegisterLogin'
+        "422":
+          description: Unprocessable Entity
+          schema:
+            $ref: '#/definitions/models.ErrorResponseRegisterLogin'
+      summary: User login
+      tags:
+      - users
   /users/register:
     post:
       consumes:
