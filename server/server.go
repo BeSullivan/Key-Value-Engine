@@ -32,6 +32,11 @@ func StartServer() {
 	userCtl := controllerlayer.NewUserController(userSL)
 	userRoutes(e, userCtl)
 
+	kiwiDL := datalayer.NewKiwiDataLayer(db)
+	kiwiSL := servicelayer.NewKiwiServiceLayer(kiwiDL)
+	kiwiCtl := controllerlayer.NewKiwiController(kiwiSL)
+	kiwiRoutes(e, kiwiCtl)
+
 	log.Fatal(e.Start(":8080"))
 
 }

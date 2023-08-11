@@ -20,17 +20,17 @@ func NewUserController(userServiceObject interfaces.UserServicelayer) *UserContr
 	}
 }
 
-// @Summary		Register a new user
-// @Description	Register a new user with the provided information
-// @Tags			users
-// @Accept			json
-// @Produce		json
-// @Param			body	body		models.UserCreateRequest	true	"User registration details"
-// @Success		201		{object}	models.UserResponse
-// @Failure		400		{object}	models.ErrorResponseRegisterLogin
-// @Failure		422		{object}	models.ErrorResponseRegisterLogin
-// @Failure		500		{object}	models.ErrorResponseRegisterLogin
-// @Router			/users/register [post]
+//	@Summary		Register a new user
+//	@Description	Register a new user with the provided information
+//	@Tags			users
+//	@Accept			json
+//	@Produce		json
+//	@Param			body	body		models.UserCreateRequest	true	"User registration details"
+//	@Success		201		{object}	models.UserResponse
+//	@Failure		400		{object}	models.ErrorResponseRegisterLogin
+//	@Failure		422		{object}	models.ErrorResponseRegisterLogin
+//	@Failure		500		{object}	models.ErrorResponseRegisterLogin
+//	@Router			/users/register [post]
 func (uc *UserControllerImpl) RegisterHandler(c echo.Context) error {
 	// Read Request Body
 	jsonBody := make(map[string]interface{})
@@ -55,16 +55,16 @@ func (uc *UserControllerImpl) RegisterHandler(c echo.Context) error {
 	return c.JSON(http.StatusOK, user)
 }
 
-// @Summary		User login
-// @Description	Login with username and password
-// @Tags			users
-// @Accept			json
-// @Produce		json
-// @Param			body	body		models.UserLoginRequest	true	"Login request body"
-// @Success		200		{object}	models.UserResponse
-// @Failure		400		{object}	models.ErrorResponseRegisterLogin
-// @Failure		422		{object}	models.ErrorResponseRegisterLogin
-// @Router			/users/login [post]
+//	@Summary		User login
+//	@Description	Login with username and password
+//	@Tags			users
+//	@Accept			json
+//	@Produce		json
+//	@Param			body	body		models.UserLoginRequest	true	"Login request body"
+//	@Success		200		{object}	models.UserResponse
+//	@Failure		400		{object}	models.ErrorResponseRegisterLogin
+//	@Failure		422		{object}	models.ErrorResponseRegisterLogin
+//	@Router			/users/login [post]
 func (uc *UserControllerImpl) LoginHandler(c echo.Context) error {
 	// Read Request Body
 	jsonBody := make(map[string]interface{})

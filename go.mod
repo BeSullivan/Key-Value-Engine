@@ -3,6 +3,7 @@ module Kiwi
 go 1.20
 
 require (
+	github.com/golang-jwt/jwt v3.2.2+incompatible
 	github.com/ilyakaznacheev/cleanenv v1.5.0
 	github.com/labstack/echo/v4 v4.11.1
 	github.com/swaggo/echo-swagger v1.4.0
