@@ -17,10 +17,18 @@ func NewUserServiceLayer(userDL interfaces.UserDatalayer) interfaces.UserService
 
 func (userSL *UserServiceLayerImpl) RegisterService(username string, password string) (models.User, error) {
 
-	return models.User{}, nil
+	user, err := userSL.userDatalayer.Create(username, password)
+	if err != nil {
+		return models.User{}, err
+	}
+	return user, nil
 }
 
 func (userSL *UserServiceLayerImpl) LoginService(username string, password string) (models.User, error) {
 
-	return models.User{}, nil
+	user, err := userSL.userDatalayer.Login(username, password)
+	if err != nil {
+		return models.User{}, err
+	}
+	return user, nil
 }
